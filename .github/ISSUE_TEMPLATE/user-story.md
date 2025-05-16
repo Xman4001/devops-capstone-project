@@ -1,6 +1,6 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: User Story
+about: Describe this issue template's purpose here.
 title: ''
 labels: ''
 assignees: ''
@@ -19,6 +19,3 @@ assignees: ''
     Given [some context]
     When [certain action is taken]
     Then [the outcome of action is observed]
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
