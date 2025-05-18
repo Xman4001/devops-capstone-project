@@ -161,9 +161,23 @@ class TestAccountService(TestCase):
         self.assertEqual(updated_account["name"], "Something Known")
 
 #####################################################################
-#  ACCOUT NOT FOUND
+#  ACCOUNT NOT FOUND
 #####################################################################
     def test_get_account_not_found(self):
         """It should not Read an Account that is not found"""
         resp = self.client.get(f"{BASE_URL}/0")
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
+
+
+    def test_delete_account(self):
+        """Delete: It should Delete an Account"""
+        account = self._create_accounts(1)[0]
+        response = self.client.delete(
+            f"{BASE_URL}/{account.id}"
+        )
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        # Data of response as text.
+        # Otherwise, it returns 'b""' and not just '""'.
+        self.assertEqual(response.get_data(as_text=True), "")
+        self.assertEqual(Account.find(account.id), None)
+        self.assertEqual(len(Account.all()), 0)
