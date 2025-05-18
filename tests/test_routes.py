@@ -161,7 +161,7 @@ class TestAccountService(TestCase):
         self.assertEqual(updated_account["name"], "Something Known")
 
 #####################################################################
-#  ACCOUT NOT FOUND
+#  ACCOUNT NOT FOUND
 #####################################################################
     def test_get_account_not_found(self):
         """It should not Read an Account that is not found"""
