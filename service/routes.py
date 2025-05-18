@@ -9,6 +9,8 @@ from service.models import Account
 from service.common import status  # HTTP Status Codes
 from . import app  # Import Flask application
 
+HEADER_CONTENT_TYPE = "application/json"
+
 
 ############################################################
 # Health Endpoint
@@ -85,11 +87,17 @@ def read_account(account_id: int):
     return jsonify(message), response_status
 
 
-######################################################################
-# UPDATE AN EXISTING ACCOUNT
-######################################################################
+    ######################################################################
+    # UPDATE AN EXISTING ACCOUNT
+    ######################################################################
+@app.route("/accounts/<int:account_id>", methods=["PUT"])
+def update_account(account_id: int):
+    """ Update an account depending on supplied ID """
+    app.logger.info("Request to update an account")
 
-# ... place you code here to UPDATE an account ...
+    account = Account.find(account_id)
+
+    return jsonify(message), response_status
 
 
 ######################################################################
