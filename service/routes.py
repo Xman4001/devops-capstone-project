@@ -82,9 +82,9 @@ def list_all_accounts():
     return jsonify(message), response_status
 
 
-    ######################################################################
-    # READ AN ACCOUNT
-    ######################################################################
+######################################################################
+# READ AN ACCOUNT
+######################################################################
 @app.route("/accounts/<int:account_id>", methods=["GET"])
 def read_account(account_id: int):
     """ Read an account depending on supplied ID """
